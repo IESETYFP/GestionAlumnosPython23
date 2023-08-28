@@ -16,3 +16,4 @@ class Alumno(models.Model):
     def __str__(self):
         texto = "{0} {1}({2})"
         return texto.format(self.apellido_a, self.nombre_a, self.id_alumno)
+        

@@ -1,12 +1,14 @@
+{% extends "./base.html" %} {% block title %}GESTION DE ALUMNOS{%endblock%}
+{%block body%}
+<h1>Nombre y apellido de los alumnos</h1>
+<ul>
+  {% for alumno in alumnos%}
+  <li>
+    nombre {{alumno.nombre_a}} apellido {{alumno.apellido_a}} DNI:
+    {{alumno.dni_a}}
+  </li>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Alumno</title>
-</head>
-<body>
-    Aca iria el html de alumno
-</body>
-</html>
+  {% endfor %}
+</ul>
+
+{% endblock %}
