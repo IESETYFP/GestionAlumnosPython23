@@ -5,7 +5,8 @@
     <h2>GESTION DE ALUMNOS</h2>
     <div class="card">
       <div class="card-body">
-        <form action="/registrarAlumno/" method="POST">
+        <form action="{% url 'alumnos:registrar_alumno'%}" method="POST">
+          
           {% csrf_token %}
           <!-- CONTROL DE DJANGO PARA EVITAR EXPLOITS-->
           <div class="form-group">
@@ -73,13 +74,14 @@
             <td>{{alumno.nombre_a}}</td>
             <td>{{alumno.dni_a}}</td>
             <td>
-              <a href="/verAlumno/{{alumno.id_alumno}}" class="btn btn-success">Ver</a>
+              <a href="{% url 'alumnos:ver_alumno' alumno.id_alumno%}" class="btn btn-success">Ver</a>
             </td>
             <td>
-              <a href="/edicionAlumno/{{alumno.id_alumno}}" class="btn btn-info">Editar</a>
+              <a href="{% url 'alumnos:edicion_alumno' alumno.id_alumno%}" class="btn btn-info">Editar</a>
+
             </td>
             <td>
-              <a href="/eliminarAlumno/{{alumno.id_alumno}}" class="btn btn-danger">Eliminar</a>
+              <a href="{% url 'alumnos:eliminar_alumno' alumno.id_alumno%}" class="btn btn-danger">Eliminar</a>
             </td>
           </tr>
           {% endfor %}
