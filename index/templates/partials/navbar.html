@@ -1,7 +1,15 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
-  <a class="navbar-brand" href="http://127.0.0.1:8000/">GESTION</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-info py-0">
+  <a class="navbar-brand" href="http://127.0.0.1:8000/"
+    ><div class="">
+      <img
+        src="{% static 'img/eet21.png' %}"
+        alt="Colegio Industrial"
+        width="60"
+        height="60"
+      /></div
+  ></a>
   <button
     class="navbar-toggler"
     type="button"
@@ -40,8 +48,9 @@
         <path
           fill-rule="evenodd"
           d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
-        /></svg
-      > Logout
+        />
+      </svg>
+      Logout
     </button></a
   >
   {% else %}
