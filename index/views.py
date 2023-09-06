@@ -13,14 +13,15 @@ def index(request):
         if user is not None:
             login(request, user)
             messages.success(request, 'Ingresaste correctamente')
-            return redirect('index')
+            return redirect('index1:index')
         else:
             messages.success(request, 'Hubo un error, ingrese nuevamente')
-            return redirect('index')
+            return redirect('index1:index')
     else:
         return render(request, 'index.html')
 
 
 def logout_user(request):
-    pass
-
+    logout(request)
+    messages.success(request, 'Has salido del perfil correctamente')
+    return redirect('index1:index')
