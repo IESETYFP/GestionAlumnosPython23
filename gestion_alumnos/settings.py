@@ -80,6 +80,9 @@ WSGI_APPLICATION = 'gestion_alumnos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+        'sql_mode': 'traditional',
+    },
         'NAME': 'gestion_colegio',
         'USER': 'root',
         'PASSWORD': '1234',

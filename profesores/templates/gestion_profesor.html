@@ -1,18 +1,18 @@
-{% extends "./base.html" %} {% block title %}GESTION DE ALUMNOS{%endblock%} 
+{% extends "./base.html" %} {% block title %}GESTION DE PROFESORES{%endblock%} 
 {% block body %} {% if user.is_authenticated %}
 <div class="row">
-  <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 bg-info">
-    <h2>GESTION DE ALUMNOS</h2>
-    <div class="card bg-info">
-      <div class="card-body bg-info">
-        <form action="{% url 'alumnos:registrar_alumno'%}" method="POST">
+  <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h2>GESTION DE PROFESORES</h2>
+    <div class="card">
+      <div class="card-body">
+        <form action="{% url 'profesores:registrar_profesor'%}" method="POST">
           {% csrf_token %}
           <!-- CONTROL DE DJANGO PARA EVITAR EXPLOITS-->
           <div class="form-group">
             <input
               type="text"
-              id="dni_a"
-              name="dni_a"
+              id="dni_p"
+              name="dni_p"
               class="form-control"
               placeholder="DNI"
               maxlength="9"
@@ -22,8 +22,8 @@
           <div class="form-group">
             <input
               type="text"
-              id="cuil_a"
-              name="cuil_a"
+              id="cuil_p"
+              name="cuil_p"
               class="form-control"
               placeholder="CUIL"
               maxlength="15"
@@ -32,8 +32,8 @@
           <div class="form-group">
             <input
               type="text"
-              id="apellido_a"
-              name="apellido_a"
+              id="apellido_p"
+              name="apellido_p"
               class="form-control"
               placeholder="APELLIDO"
               maxlength="50"
@@ -43,8 +43,8 @@
           <div class="form-group">
             <input
               type="text"
-              id="nombre_a"
-              name="nombre_a"
+              id="nombre_p"
+              name="nombre_p"
               class="form-control"
               placeholder="NOMBRE"
               maxlength="50"
@@ -54,10 +54,10 @@
           <div class="form-group">
             <input
               type="text"
-              id="matricula"
-              name="matricula"
+              id="legajo_p"
+              name="legajo_p"
               class="form-control"
-              placeholder="MATRICULA"
+              placeholder="LEGAJO"
               minlength="1"
               maxlength="10"
             />
@@ -65,19 +65,8 @@
           <div class="form-group">
             <input
               type="text"
-              id="tutores"
-              name="tutores"
-              class="form-control"
-              placeholder="TUTOR"
-              minlength="1"
-              maxlength="100"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              id="telefono"
-              name="telefono"
+              id="telefono_p"
+              name="telefono_p"
               class="form-control"
               placeholder="TELEFONO"
               maxlength="20"
@@ -86,8 +75,8 @@
           <div class="form-group">
             <input
               type="text"
-              id="direccion"
-              name="direccion"
+              id="direccion_p"
+              name="direccion_p"
               class="form-control"
               placeholder="DIRECCION"
               maxlength="50"
@@ -96,8 +85,8 @@
           <div class="form-group">
             <input
               type="date"
-              id="fecha_nac"
-              name="fecha_nac"
+              id="fecha_nac_p"
+              name="fecha_nac_p"
               class="form-control"
               placeholder="FECHA NACIMIENTO"
             />
@@ -111,13 +100,13 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 bg-info">
-    <h1>INFORMACION DE ALUMNOS</h1>
+  <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+    <h1>INFORMACION DE PROFESORES</h1>
     <div class="table-responsive py-2">
-      <table class="table table-striped table-hover ">
+      <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th>Matricula</th>
+            <th>Legajo</th>
             <th>Apellido</th>
             <th>Nombre</th>
             <th>DNI</th>
@@ -127,29 +116,29 @@
           </tr>
         </thead>
         <tbody>
-          {% for alumno in alumnos%}
+          {% for profesor in profesores%}
           <tr>
-            <td>{{alumno.matricula}}</td>
-            <td>{{alumno.apellido_a}}</td>
-            <td>{{alumno.nombre_a}}</td>
-            <td>{{alumno.dni_a}}</td>
+            <td>{{profesor.legajo_p}}</td>
+            <td>{{profesor.apellido_p}}</td>
+            <td>{{profesor.nombre_p}}</td>
+            <td>{{profesor.dni_p}}</td>
             <td>
               <a
-                href="{% url 'alumnos:ver_alumno' alumno.id_alumno%}"
+                href="{% url 'profesores:ver_profesor' profesor.id_profesor%}"
                 class="btn btn-success"
                 >Ver</a
               >
             </td>
             <td>
               <a
-                href="{% url 'alumnos:edicion_alumno' alumno.id_alumno%}"
+                href="{% url 'profesores:edicion_profesor' profesor.id_profesor%}"
                 class="btn btn-info"
                 >Editar</a
               >
             </td>
             <td>
               <a
-                href="{% url 'alumnos:eliminar_alumno' alumno.id_alumno%}"
+                href="{% url 'profesores:eliminar_profesor' profesor.id_profesor%}"
                 class="btn btn-danger"
                 >Eliminar</a
               >
