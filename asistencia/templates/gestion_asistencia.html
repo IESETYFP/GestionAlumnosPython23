@@ -6,28 +6,15 @@
     <div class="card bg-info">
       <div class="card-body bg-info">
         <form action="" method="POST">
-          {% csrf_token %} 
-          {{ asistencia_form|crispy}}
+          {% csrf_token %} {{ asistencia_form|crispy}}
 
-          
-            <button type="submit" class="btn btn-success btn-block text-white">
-              Guardar
-            </button>
-          </div>
+          <button type="submit" class="btn btn-success btn-block text-white">
+            Guardar
+          </button>
         </form>
-        {% if 'ok' in request.GET %}
-        <div class="alert alert-success mt-5" role="alert">
-          <strong>El mensaje se ha enviado correctamente</strong>
-      </div>
-        {% endif %}
-
-        {% if 'error' in request.GET %}
-        <div class="alert alert-danger mt-5" role="alert">
-            <strong>El mensaje no ha podido ser enviado. Por favor, intente más tarde</strong>
-        </div>
-    {% endif %}
       </div>
     </div>
+  </div>
   <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 bg-info">
     <h1>INFORMACION DE ASISTENCIA</h1>
     <div class="table-responsive py-2">
@@ -52,24 +39,20 @@
             <td>{{asisten.turno}}</td>
             <td>
               <a
-                href=""
+                href="{% url 'asistencia:ver_asistencia' asisten.id_asistencia%}"
                 class="btn btn-success"
                 >Ver</a
               >
             </td>
             <td>
               <a
-                href=""
+                href="{% url 'asistencia:editar_asistencia' asisten.id_asistencia%}"
                 class="btn btn-info"
                 >Editar</a
               >
             </td>
             <td>
-              <a
-                href=""
-                class="btn btn-danger"
-                >Eliminar</a
-              >
+              <a href="" class="btn btn-danger">Eliminar</a>
             </td>
           </tr>
           {% endfor %}
