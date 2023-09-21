@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'asistencia.apps.AsistenciaConfig',
     'agenda',
     'curso',
-    'nota',
+    'notas',
     'especialidad',
 ]
 

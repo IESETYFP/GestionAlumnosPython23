@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from .forms import AsistenciaForm, AsistenciaFormUpdate
+from django.shortcuts import render, redirect
 from .models import Asistencia
+from .forms import AsistenciaForm, AsistenciaFormUpdate
 
 # Create your views here.
 def asistencia(request):
@@ -35,3 +34,9 @@ def editarAsistencia(request, id_asistencia):
 		'Easistencia_form':Easistencia_form,
 	}
     return render(request, 'editarAsistencia.html', context)
+
+def eliminarAsistencia(request, id_asistencia):
+    asistencia = Asistencia.objects.get(id_asistencia=id_asistencia)
+    asistencia.delete()
+
+    return redirect('/asistencia')
