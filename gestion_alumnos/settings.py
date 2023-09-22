@@ -41,12 +41,8 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     'index',
     'alumnado',
-    'materias',
-    'profesores',
     'asistencia.apps.AsistenciaConfig',
-    'agenda',
     'curso',
-    'notas',
     'especialidad',
 ]
 

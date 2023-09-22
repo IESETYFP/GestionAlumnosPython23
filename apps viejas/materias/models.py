@@ -6,6 +6,7 @@ from especialidad import models as especialidad_models
 # Create your models here.
 
 class Materia(models.Model):
+    id_materia = models.AutoField(primary_key=True)
     nombreMateria = models.CharField(max_length=50)
     id_curso = models.ForeignKey(curso_models.Curso, on_delete=models.CASCADE)
     id_profesores = models.ForeignKey(profesores_models.Profesor, on_delete=models.CASCADE)

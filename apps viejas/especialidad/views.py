@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-#from .models import Especialidad
-#from .forms import EspecialidadForm
+from .models import Especialidad
+from .forms import EspecialidadForm
 
 # Create your views here.
 def especialidad(request):
