@@ -6,3 +6,7 @@ class EspecialidadForm(forms.ModelForm):
         model = Especialidad
         fields = ['id_especialidad', 'nombreEspecialidad', 'disenioCurricular', 'cantidadMaterias']
 
+class EspecialidadFormUpdate(forms.ModelForm):
+    class Meta:
+        model = Especialidad
+        fields = ['id_especialidad', 'nombreEspecialidad', 'disenioCurricular', 'cantidadMaterias']

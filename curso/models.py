@@ -7,5 +7,5 @@ class Curso(models.Model):
     Division = models.CharField(max_length=4)
 
     def __str__(self):
-        texto = "{0}"
-        return texto.format(self.nombreCurso)
+        texto = "{0}, {1}"
+        return texto.format(self.Annio, self.Division)

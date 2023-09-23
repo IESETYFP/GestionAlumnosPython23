@@ -1,4 +1,0 @@
-https://stackoverflow.com/questions/27583744/django-table-doesnt-existhttps://stackoverflow.com/questions/27583744/django-table-doesnt-exist
-https://drive.google.com/drive/my-drive?hl=es
-file:///C:/Users/Usuario/Downloads/Grafico%20base%20de%20datos%20E21actualizado.pdf
-http://127.0.0.1:8000/especialidad/

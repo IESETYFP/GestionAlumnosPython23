@@ -22,9 +22,9 @@
         <thead>
           <tr>
             <th>ID ESPECIALIAD</th>
-            <th>NOMBRE ESPECIALIAD/th>
+            <th>NOMBRE ESPECIALIAD</th>
             <th>DISEÑO CURRICULAR</th>
-            <th>CANTIDAD DE MATERIAS</th>
+            <th>Cantidad de Materias</th>
             <th colspan="3">
               <center>MENU</center>
             </th>
@@ -39,20 +39,24 @@
             <td>{{espe.cantidadMaterias}}</td>
             <td>
               <a
-                href=""
+                href="{% url 'especialidad:ver_especialidad' espe.id_especialidad%}"
                 class="btn btn-success"
                 >Ver</a
               >
             </td>
             <td>
               <a
-                href=""
+                href="{% url 'especialidad:editar_especialidad' espe.id_especialidad%}"
                 class="btn btn-info"
                 >Editar</a
               >
             </td>
             <td>
-              <a href="" class="btn btn-danger">Eliminar</a>
+              <a
+                href="{% url 'especialidad:eliminar_especialidad' espe.id_especialidad%}"
+                class="btn btn-danger"
+                >Eliminar</a
+              >
             </td>
           </tr>
           {% endfor %}

@@ -1,113 +1,16 @@
 {% extends "./base.html" %} {% block title %}GESTION DE ALUMNOS{%endblock%} 
-{% block body %} {% if user.is_authenticated %}
+{% block body %} {% if user.is_authenticated %}  {% load crispy_forms_tags %}
 <div class="row">
   <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 bg-info">
     <h2>GESTION DE ALUMNOS</h2>
     <div class="card bg-info">
       <div class="card-body bg-info">
-        <form action="{% url 'alumnos:registrar_alumno'%}" method="POST">
-          {% csrf_token %}
-          <!-- CONTROL DE DJANGO PARA EVITAR EXPLOITS-->
-          <div class="form-group">
-            <input
-              type="text"
-              id="dni_a"
-              name="dni_a"
-              class="form-control"
-              placeholder="DNI"
-              maxlength="9"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              id="cuil_a"
-              name="cuil_a"
-              class="form-control"
-              placeholder="CUIL"
-              maxlength="15"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              id="apellido_a"
-              name="apellido_a"
-              class="form-control"
-              placeholder="APELLIDO"
-              maxlength="50"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              id="nombre_a"
-              name="nombre_a"
-              class="form-control"
-              placeholder="NOMBRE"
-              maxlength="50"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              id="matricula"
-              name="matricula"
-              class="form-control"
-              placeholder="MATRICULA"
-              minlength="1"
-              maxlength="10"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              id="tutores"
-              name="tutores"
-              class="form-control"
-              placeholder="TUTOR"
-              minlength="1"
-              maxlength="100"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              id="telefono"
-              name="telefono"
-              class="form-control"
-              placeholder="TELEFONO"
-              maxlength="20"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              id="direccion"
-              name="direccion"
-              class="form-control"
-              placeholder="DIRECCION"
-              maxlength="50"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="date"
-              id="fecha_nac"
-              name="fecha_nac"
-              class="form-control"
-              placeholder="FECHA NACIMIENTO"
-            />
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-success btn-block text-white">
-              Guardar
-            </button>
-          </div>
-        </form>
+        <form action="" method="POST">
+          {% csrf_token %} {{ alumnos_form|crispy}}
+
+          <button type="submit" class="btn btn-success btn-block text-white">
+            Guardar
+          </button>
       </div>
     </div>
   </div>
@@ -142,7 +45,7 @@
             </td>
             <td>
               <a
-                href="{% url 'alumnos:edicion_alumno' alumno.id_alumno%}"
+                href="{% url 'alumnos:editar_alumno' alumno.id_alumno%}"
                 class="btn btn-info"
                 >Editar</a
               >

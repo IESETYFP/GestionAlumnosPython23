@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'asistencia.apps.AsistenciaConfig',
     'curso',
     'especialidad',
+    'materia'
 ]
 
 # Configuración de Crispy-forms
@@ -86,18 +87,10 @@ WSGI_APPLICATION = 'gestion_alumnos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-        'sql_mode': 'traditional',
-    },
-        'NAME': 'gestion_colegio',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': ''
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

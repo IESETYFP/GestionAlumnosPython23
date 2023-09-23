@@ -5,7 +5,7 @@ app_name = 'especialidad'
 
 urlpatterns = [
     path('', views.especialidad, name='especialidad'),
-    #path('verAsistencia/<id_asistencia>', views.verAsistencia, name='ver_asistencia'),
-    #path('editarAsistencia/<id_asistencia>/', views.editarAsistencia, name='editar_asistencia'),
-    #path('eliminarAsistencia/<id_asistencia>/', views.eliminarAsistencia, name='eliminar_asistencia'),
+    path('verEspecialidad/<id_especialidad>', views.verEspecialidad, name='ver_especialidad'),
+    path('editarEspecialidad/<id_especialidad>/', views.editarEspecialidad, name='editar_especialidad'),
+    path('eliminarEspecialidad/<id_especialidad>/', views.eliminarEspecialidad, name='eliminar_especialidad'),
 ]

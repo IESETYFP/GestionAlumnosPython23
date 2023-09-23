@@ -15,11 +15,9 @@ class Alumno(models.Model):
     direccion = models.CharField(max_length=50, blank=True)
     fecha_nac = models.DateField()
     copiaDNI_A = ImageField(upload_to='alumnado/images/', blank=True)
-    id_curso = models.ForeignKey(curso_models.Curso, on_delete=models.CASCADE, null=True)
+    id_curso = models.ForeignKey(curso_models.Curso, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        texto = "{0} {1}({2})"
+        texto = "{0} {1}, ({2})"
         return texto.format(self.apellido_a, self.nombre_a, self.id_alumno)
-
-
 
