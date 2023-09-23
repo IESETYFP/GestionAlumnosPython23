@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'asistencia.apps.AsistenciaConfig',
     'curso',
     'especialidad',
-    'materia'
+    'materia',
+    'personal',
+    'agenda',
+    'notas'
 ]
 
 # Configuración de Crispy-forms
