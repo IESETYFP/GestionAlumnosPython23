@@ -90,8 +90,14 @@ WSGI_APPLICATION = 'gestion_alumnos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'gestion_alumnos',
+        'USER':'',
+        'PASSWORD':'',
+        'HOST':'DESKTOP-5M7H9OE\SQLEXPRESS',
+        'OPTIONS':{
+            'driver':'ODBC Driver 13 for SQL Server'
+        }
     }
 }
 

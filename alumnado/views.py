@@ -30,7 +30,7 @@ def editarAlumno(request, id_alumno):
         alumno_form_update = AlumnoFormUpdate(request.POST, instance=queryset)
         if alumno_form_update.is_valid():
             alumno_form_update.save()
-            return redirect('/alumno')
+            return redirect('/alumnos')
     
     context = {
 		'alumno_form_update':alumno_form_update,
@@ -40,6 +40,5 @@ def editarAlumno(request, id_alumno):
 def eliminarAlumno(request, id_alumno):
     alumno = Alumno.objects.get(id_alumno=id_alumno)
     alumno.delete()
-
     return redirect('/alumnos')
 
