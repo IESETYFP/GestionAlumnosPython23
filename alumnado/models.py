@@ -10,11 +10,11 @@ class Alumno(models.Model):
     apellido_a = models.CharField(max_length=50)
     nombre_a = models.CharField(max_length=50)
     matricula = models.CharField(max_length=10)
-    tutores = models.CharField(max_length=100, blank=True)
-    telefono = models.CharField(max_length=20, blank=True)
-    direccion = models.CharField(max_length=50, blank=True)
-    fecha_nac = models.DateField()
-    copiaDNI_A = ImageField(upload_to='alumnado/images/', blank=True)
+    tutores = models.CharField(max_length=100, null=True, blank=True)
+    telefono = models.CharField(max_length=20, null=True, blank=True)
+    direccion = models.CharField(max_length=50, null=True, blank=True)
+    fecha_nac = models.DateField(blank=True)
+    copiaDNI_A = ImageField(blank=True, null=True, upload_to='alumnado/images/')
     id_curso = models.ForeignKey(curso_models.Curso, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
