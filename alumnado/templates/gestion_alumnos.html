@@ -1,29 +1,22 @@
-{% extends "./gestionBase.html" %}
+{% extends "./gestionBase.html" %} 
+{% block new_title%} GESTION ALUMNOS{%endblock%} 
+{% block titulo_formulario %} CARGA DE ALUMNOS {% endblock %} 
 
-{% block new_title%} GESTION ALUMNOS {%endblock%}
+{% block formulario %} 
+{% csrf_token %} {% load crispy_forms_tags %} 
+{{alumnos_form|crispy}} 
+{% endblock %} 
 
-{% block titulo_formulario %}
-CARGA DE ALUMNOS
-{% endblock %}
+{% block titulo_informacion%} INFORMACION DE ALUMNOS {%endblock%} 
 
-{% block formulario %}
-{% load crispy_forms_tags %}
-{{ alumnos_form|crispy}}
-{% endblock %}
-
-{% block titulo_informacion%} 
-INFORMACION DE ALUMNOS
-{%endblock%}
-
-{% block titolo_tabla %} 
+{% block titulo_columnas %}
 <th>Matricula</th>
 <th>Apellido</th>
 <th>Nombre</th>
 <th>DNI</th>
-{%endblock%}
+{%endblock%} 
 
-
-{% block contenido_tabla%}
+{% block contenido_tabla%} 
 {% for alumno in alumnos%}
 <tr>
   <td>{{alumno.matricula}}</td>
@@ -31,6 +24,69 @@ INFORMACION DE ALUMNOS
   <td>{{alumno.nombre_a}}</td>
   <td>{{alumno.dni_a}}</td>
   <td>
-    {% endfor %}
-
-{% endblock %}
+    <a
+      href="{% url 'alumnos:ver_alumno' alumno.id_alumno%}"
+      class="btn btn-success"
+      >Ver</a
+    >
+  </td>
+  <td>
+    <a
+      href="{% url 'alumnos:editar_alumno' alumno.id_alumno%}"
+      class="btn btn-info"
+      >Editar</a
+    >
+  </td>
+  <td>
+    <button
+      type="button"
+      class="btn btn-danger"
+      data-toggle="modal"
+      data-target="#exampleModal"
+    >
+      Eliminar
+    </button>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Confirmar Eliminación
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">¿Desea eliminar este alumno?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <a
+              href="{% url 'alumnos:eliminar_alumno' alumno.id_alumno%}"
+              class="btn btn-danger"
+              >Eliminar</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </td>
+</tr>
+{% endfor %} {% endblock %}

@@ -1,106 +1,90 @@
-{% extends "./base.html" %} {% block title %}GESTION DE CURSOS{%endblock%} 
-{% block body %} {% load crispy_forms_tags %}
-<div class="row">
-  <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 bg-info">
-    <h2>GESTION DE CURSO</h2>
-    <div class="card bg-info">
-      <div class="card-body bg-info">
-        <form action="" method="POST">
-          {% csrf_token %} {{ curso_form|crispy}}
+{% extends "./gestionBase.html" %} 
+{% block new_title%} GESTION DE CURSOS{%endblock%} 
+{% block titulo_formulario %} CARGA DE CURSOS {% endblock %} 
 
-          <button type="submit" class="btn btn-success btn-block text-white">
-            Guardar
-          </button>
-        </form>
+{% block formulario %} 
+{% csrf_token %} {% load crispy_forms_tags %} 
+{{ curso_form|crispy}}
+{% endblock %} 
+
+{% block titulo_informacion%} INFORMACION DE CURSOS {%endblock%} 
+
+{% block titulo_columnas %}
+<th>id_curso</th>
+<th>AÑO</th>
+<th>Division</th>
+{%endblock%} 
+
+{% block contenido_tabla%} 
+{% for cur in curso%}
+<tr>
+  <td>{{cur.id_curso}}</td>
+  <td>{{cur.Annio}}</td>
+  <td>{{cur.Division}}</td>
+  <td>
+    <a
+      href="{% url 'curso:ver_curso' cur.id_curso%}"
+      class="btn btn-success"
+      >Ver</a
+    >
+  </td>
+  <td>
+    <a
+      href="{% url 'curso:editar_curso' cur.id_curso%}"
+      class="btn btn-info"
+      >Editar</a
+    >
+  </td>
+  <td>
+    <button
+      type="button"
+      class="btn btn-danger"
+      data-toggle="modal"
+      data-target="#exampleModal"
+    >
+      Eliminar
+    </button>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Confirmar Eliminación
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">¿Desea eliminar este Curso?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <a
+              href="{% url 'curso:eliminar_curso' cur.id_curso%}"
+              class="btn btn-danger"
+              >Eliminar</a
+            >
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 bg-info">
-    <h1>INFORMACION DE CURSOS</h1>
-    <div class="table-responsive py-2">
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th>id_curso</th>
-            <th>AÑO</th>
-            <th>Division</th>
-            <th colspan="3">
-              <center>MENU</center>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for cur in curso%}
-          <tr>
-            <td>{{cur.id_curso}}</td>
-            <td>{{cur.Annio}}</td>
-            <td>{{cur.Division}}</td>
-            <td>
-              <a href="" class="btn btn-success">Ver</a>
-            </td>
-            <td>
-              <a
-                href="{% url 'curso:editar_curso' cur.id_curso%}"
-                class="btn btn-info"
-                >Editar</a
-              >
-            </td>
-            <td>
-              <button
-                type="button"
-                class="btn btn-danger"
-                data-toggle="modal"
-                data-target="#exampleModal"
-              >
-                Eliminar
-              </button>
-              <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        Confirmar Eliminación
-                      </h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">¿Desea eliminar este Curso?</div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <a
-                        href="{% url 'curso:eliminar_curso' cur.id_curso%}"
-                        class="btn btn-danger"
-                        >Eliminar</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-{% endblock %}
+  </td>
+</tr>
+{% endfor %} {% endblock %}

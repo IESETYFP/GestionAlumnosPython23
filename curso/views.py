@@ -20,6 +20,10 @@ def curso(request):
     }
     return render(request, 'gestion_curso.html', context)
 
+def verCurso(request, id_curso):
+    curso = Curso.objects.get(id_curso=id_curso)
+    return render(request, "verCurso.html", {"curso":curso})
+
 def editarCurso(request, id_curso):
     queryset = Curso.objects.get(id_curso=id_curso)
     Ecurso_form = CursoFormUpdate(instance=queryset)
