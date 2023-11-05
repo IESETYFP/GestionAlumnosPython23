@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     'index',
     'alumnado',
-    'asistencia.apps.AsistenciaConfig',
+    'asistencia',
     'curso',
     'especialidad',
     'materia',
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'gestion_alumnos.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
@@ -101,6 +101,7 @@ DATABASES = {
         }
     }
 }
+
 """
 DATABASES = {
     'default': {
@@ -108,6 +109,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

@@ -12,6 +12,23 @@ class PersonalForm(forms.ModelForm):
                 'class': 'form-control'
             }
         )
+        self.fields['legajo_p'].required = False
+        self.fields['telefono_p'].required = False
+        self.fields['direccion_p'].required = False
+        self.fields['copiaDNI_p'].required = False
+        self.fields['fecha_nac_p'].required = False
+    
+    dni_p = forms.CharField(label="DNI")
+    cuil_p = forms.CharField(label="CUIL")
+    apellido_p = forms.CharField(label="Apellido del Personal")
+    nombre_p = forms.CharField(label="Nombre del Personal")
+    copiaDNI_p = forms.ImageField(label="Copia de DNI")
+    fecha_nac_p = forms.DateField(label="Fecha de Nacimiento")
+    telefono_p = forms.CharField(label="Teléfono")
+    direccion_p = forms.CharField(label="Dirección")
+    legajo_p = forms.CharField(label="Legajo")
+    rol_p = forms.CharField(label="Rol del Personal")
+
 
     class Meta:
         model = Personal
@@ -29,6 +46,19 @@ class PersonalFormUpdate(forms.ModelForm):
                 'class': 'form-control'
             }
         )
+        self.fields['copiaDNI_p'].required = False
+        self.fields['fecha_nac_p'].required = False
+    
+
+    dni_p = forms.CharField(label="DNI")
+    cuil_p = forms.CharField(label="CUIL")
+    apellido_p = forms.CharField(label="Apellido del Personal")
+    nombre_p = forms.CharField(label="Nombre del Personal")
+    copiaDNI_p = forms.ImageField(label="Copia de DNI")
+    fecha_nac_p = forms.DateField(label="Fecha de Nacimiento")
+    telefono_p = forms.CharField(label="Teléfono")
+    direccion_p = forms.CharField(label="Dirección")
+    legajo_p = forms.CharField(label="Legajo")
 
     class Meta:
         model = Personal

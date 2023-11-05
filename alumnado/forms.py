@@ -21,7 +21,7 @@ class AlumnoForm(forms.ModelForm):
     apellido_a = forms.CharField(label="Apellido del alumno")
     nombre_a = forms.CharField(label="Nombre del alumno")
     copiaDNI_A = forms.ImageField(label="Copia de DNI")
-    fecha_nac = forms.ImageField(label="Fecha de Nacimiento")
+    fecha_nac = forms.DateField(label="Fecha de Nacimiento")
 
     class Meta:
         model = Alumno
@@ -49,8 +49,8 @@ class AlumnoFormUpdate(forms.ModelForm):
     cuil_a = forms.CharField(label="cuil_a")
     apellido_a = forms.CharField(label="Apellido del alumno")
     nombre_a = forms.CharField(label="Nombre del alumno")
-    copiaDNI_A = forms.CharField(label="Copia de DNI")    
-    fecha_nac = forms.ImageField(label="Fecha de Nacimiento")
+    copiaDNI_A = forms.ImageField(label="Copia de DNI")    
+    fecha_nac = forms.DateField(label="Fecha de Nacimiento")
     
     class Meta:
         model = Alumno

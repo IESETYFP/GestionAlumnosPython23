@@ -21,7 +21,7 @@
     {% if user.is_authenticated %} {% include 'partials/navbar.html' %}
 
     <div class="container py-4">{% block body %} {% endblock %}</div>
-
+    {% include 'partials/footer.html' %}
     {% else %}
 
     <div class="d-flex flex-column min-vh-100 min-vw-100">
