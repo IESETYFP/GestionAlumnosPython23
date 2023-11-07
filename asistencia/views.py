@@ -1,8 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Asistencia
 from .forms import AsistenciaForm, AsistenciaFormUpdate
+from curso.models import Curso
 
 # Create your views here.
+def nuevaAsistencia(request):
+    cursos = Curso.objects.all()
+    return render(request, 'nueva_asistencia.html', {'cursos':cursos})
+    
 def asistencia(request):
     asistencia_form = AsistenciaForm()
     asistencia = Asistencia.objects.all()

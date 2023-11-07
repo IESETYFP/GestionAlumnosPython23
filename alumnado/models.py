@@ -3,6 +3,11 @@ from django.db.models.fields.files import ImageField
 from curso import models as curso_models
 
 # Create your models here.
+options = [
+    [0, 'Regular'],
+    [1, 'Semipresencial'],
+    [2, 'Libre'],
+]
 class Alumno(models.Model):
     id_alumno = models.AutoField(primary_key=True)
     dni_a = models.CharField(max_length=9)
@@ -15,6 +20,8 @@ class Alumno(models.Model):
     direccion = models.CharField(max_length=50, null=True, blank=True)
     fecha_nac = models.DateField(blank=True)
     copiaDNI_A = ImageField(blank=True, null=True, upload_to='alumnado/images/')
+    condicion = models.IntegerField(choices=options, verbose_name='Condición')
+    turno = models.CharField(max_length=30, blank=True, verbose_name='Turno')
     id_curso = models.ForeignKey(curso_models.Curso, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):

@@ -2,6 +2,10 @@
 {% block new_title%} GESTION DE ASISTENCIA{%endblock%} 
 {% block titulo_formulario %} CARGA DE ASISTENCIA {% endblock %} 
 
+<a href="{% url 'asistencia:nuevaAsistencia'%}"
+class="btn-success">NUEVA ASISTENCIA</a>
+
+
 {% block formulario %} 
 {% csrf_token %} {% load crispy_forms_tags %} 
 {{ asistencia_form|crispy}}
