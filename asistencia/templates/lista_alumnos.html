@@ -1,0 +1,31 @@
+{% extends "./base.html" %}
+{% block title %}Lista de alumnos {%endblock%}
+{% block body %}
+<div class="col-sm-12 col-md-6 col-lg-8 col-xl-8" bg-color="#80000">
+<h2>Lista de alumnos</h2>
+    <form action="" method="POST">
+    {% csrf_token %}
+    <table class="table table-info">
+        <thead>
+            <th>Apellido y Nombre</th>
+            <th>Cantidad de asistencias</th>
+            <th>Asistencia de hoy</th>
+        </thead>
+        {% for alumno in alumnos %}
+        <tr>
+            <td>{{alumno.apellido_a}}, {{alumno.nombre_a}}</td>
+            <td>{{alumno.cantidad_asistencias}}</td>
+            <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <h4>Total de clases de este curso: {{curso.cantidad_clases}}</h4>
+    <button type="submit" class="btn btn-success btn-block text-white">
+        Guardar
+    </button>
+    <br>
+
+
+</div>
+{% endblock %}

@@ -1,7 +1,6 @@
 from django.db import models
 from alumnado import models as alumnado_models
 
-
 # Create your models here.
 class Asistencia(models.Model):
     id_asistencia = models.AutoField(primary_key=True)

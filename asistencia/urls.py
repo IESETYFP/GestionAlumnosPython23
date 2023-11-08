@@ -5,8 +5,5 @@ app_name = 'asistencia'
 
 urlpatterns = [
     path('', views.asistencia, name='asistencia'),
-    path('verAsistencia/<id_asistencia>', views.verAsistencia, name='ver_asistencia'),
-    path('editarAsistencia/<id_asistencia>/', views.editarAsistencia, name='editar_asistencia'),
-    path('eliminarAsistencia/<id_asistencia>/', views.eliminarAsistencia, name='eliminar_asistencia'),
-    path('nueva/', views.nuevaAsistencia, name='nuevaAsistencia')
+    path('listaAlumnos/<id_curso>', views.listaAlumnos, name='listaAlumnos')
 ]

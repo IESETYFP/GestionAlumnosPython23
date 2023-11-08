@@ -20,8 +20,9 @@ class Alumno(models.Model):
     direccion = models.CharField(max_length=50, null=True, blank=True)
     fecha_nac = models.DateField(blank=True)
     copiaDNI_A = ImageField(blank=True, null=True, upload_to='alumnado/images/')
-    condicion = models.IntegerField(choices=options, verbose_name='Condición')
-    turno = models.CharField(max_length=30, blank=True, verbose_name='Turno')
+    condicion = models.IntegerField(choices=options, null=True, verbose_name='Condición')
+    turno = models.CharField(max_length=30, null=True, blank=True, verbose_name='Turno')
+    cantidad_asistencias= models.IntegerField(default=0)
     id_curso = models.ForeignKey(curso_models.Curso, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):

@@ -1,0 +1,24 @@
+{% extends "./base.html" %} 
+{% block title %}Lista de cursos {%endblock%} 
+{% block body %}
+
+<div class="col-sm-12 col-md-6 col-lg-8 col-xl-8" bg-color="#80000">
+  <h2>Elegir un curso</h2>
+  <table class="table table-info">
+    <thead>
+        <th>Año</th>
+        <th>División</th>
+    </thead>
+  {% for curso in cursos %}
+
+    <tr>
+        <td><a href="{% url 'asistencia:listaAlumnos' curso.id_curso%}">{{curso.Annio}}</a></td>
+        <td><a href="{% url 'asistencia:listaAlumnos' curso.id_curso%}">{{curso.Division}}</a></td>
+    </tr>
+
+  {% endfor %} 
+  </table>
+</div>
+
+{% endblock %}
+

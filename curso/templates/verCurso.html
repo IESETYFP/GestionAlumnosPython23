@@ -3,7 +3,7 @@
 {% block body %}
 
 <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8" bg-color="#80000">
-  <h2>INFORMACION DE ASISTENCIA </h2>
+  <h2>INFORMACION DE CURSO </h2>
   <table class="table table-info">
     <thead>
       <th>Tipo</th>
@@ -12,39 +12,23 @@
     <tbody>
       <tr>
         <td>ID</td>
-        <td>{{asistencia.id_asistencia}}</td>
+        <td>{{curso.id_curso}}</td>
       </tr>
       <tr>
-        <td>FECHA</td>
-        <td>{{asistencia.fechaA}}</td>
+        <td>AÑO</td>
+        <td>{{curso.Annio}}</td>
       </tr>
       <tr>
-        <td>HORA</td>
-        <td>{{asistencia.horaA}}</td>
+        <td>Division</td>
+        <td>{{curso.Division}}</td>
       </tr>
       <tr>
-        <td>CONDICION</td>
-        <td>{{asistencia.condicion}}</td>
+        <td>Cantidad de clases</td>
+        <td>{{curso.cantidad_clases}}</td>
       </tr>
       <tr>
-        <td>CANTIDAD DE ASISTENCIAS</td>
-        <td>{{asistencia.cantidadA}}</td>
-      </tr>
-      <tr>
-        <td>TURNO</td>
-        <td>{{asistencia.turno}}</td>
-      </tr>
-      <tr>
-        <td>REINTEGRADO</td>
-        <td>{{asistencia.reintegrado}}</td>
-      </tr>
-      <tr>
-        <td>id_alumno</td>
-        <td>{{asistencia.id_alumno}}</td>
-      </tr>
-      <tr>
-        <td>evento</td>
-        <td>{{asistencia.evento}}</td>
+        <td>Materia asociada</td>
+        <td>{{curso.id_materia}}</td>
       </tr>
     </tbody>
   </table>
