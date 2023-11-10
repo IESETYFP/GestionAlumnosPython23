@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+{% block title %}Asistencia de alumno {{ asistencia.0.id_alumno }}{%endblock%}
+{% block body %}
+{% if asistencia %}
+<table class="table table-info">
+    <thead>
+        <th>Asistencias del alumno {{ asistencia.0.id_alumno }}</th>
+    </thead>
+    
+{% for asis in asistencia %}
+<tr>
+    <td>{{asis.horaA}}</td>
+</tr>
+{% endfor %}
+</table>
+{% else %}
+<div class="bg-secondary mb-3 rounded shadow">
+    <h1 class="mx-3">No existen asistencias para el alumno seleccionado</h1>
+    <div class="m-3">
+        <a class="btn btn-info" onclick="goBack()">Volver atrás</a>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+{% endif %}
+{% endblock %}

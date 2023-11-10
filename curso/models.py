@@ -5,8 +5,8 @@ from materia import models as materias_models
 # Create your models here.
 class Curso(models.Model):
     id_curso = models.AutoField(primary_key=True)
-    Annio = models.CharField(max_length=5)
-    Division = models.CharField(max_length=4)
+    Annio = models.CharField(max_length=30)
+    Division = models.CharField(max_length=30)
     cantidad_clases = models.IntegerField(default=0, null=True, blank=True)
     id_materia = models.ForeignKey(materias_models.Materia, on_delete=models.CASCADE, null=True, blank=True)
 

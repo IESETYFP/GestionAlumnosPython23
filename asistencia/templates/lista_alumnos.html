@@ -1,6 +1,7 @@
 {% extends "./base.html" %}
 {% block title %}Lista de alumnos {%endblock%}
 {% block body %}
+{% if alumnos %}
 <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8" bg-color="#80000">
 <h2>Lista de alumnos</h2>
     <form action="" method="POST">
@@ -9,13 +10,15 @@
         <thead>
             <th>Apellido y Nombre</th>
             <th>Cantidad de asistencias</th>
+            <th>Cantidad de inasistencias</th>
             <th>Asistencia de hoy</th>
         </thead>
         {% for alumno in alumnos %}
         <tr>
-            <td>{{alumno.apellido_a}}, {{alumno.nombre_a}}</td>
+            <td><a href="{% url 'asistencia:listaAsistencias' alumno.id_alumno%}">{{alumno.apellido_a}}, {{alumno.nombre_a}}</a></td>
             <td>{{alumno.cantidad_asistencias}}</td>
-            <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+            <td>{{alumno.cantidad_inasistencias}}</td>
+            <td><input type="checkbox" name="asistencia_{{alumno.id_alumno}}" style="width: 20px; height: 20px;"></td>
         </tr>
         {% endfor %}
 
@@ -28,4 +31,20 @@
 
 
 </div>
+
+{% else %}
+<div class="bg-secondary mb-3 rounded shadow">
+    <h1 class="mx-3">No existen alumnos para el curso seleccionado</h1>
+    <div class="m-3">
+        <a class="btn btn-info" onclick="goBack()">Volver atrás</a>
+        <a class="btn btn-success" href="{% url 'alumnos:alumnos'%}">Agregar alumnos</a>
+    </div>
+</div>
+{% endif %}
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 {% endblock %}

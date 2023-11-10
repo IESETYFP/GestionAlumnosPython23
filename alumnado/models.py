@@ -23,9 +23,10 @@ class Alumno(models.Model):
     condicion = models.IntegerField(choices=options, null=True, verbose_name='Condición')
     turno = models.CharField(max_length=30, null=True, blank=True, verbose_name='Turno')
     cantidad_asistencias= models.IntegerField(default=0)
+    cantidad_inasistencias= models.IntegerField(default=0)
     id_curso = models.ForeignKey(curso_models.Curso, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        texto = "{0} {1}, ({2})"
+        texto = "{0} {1}"
         return texto.format(self.apellido_a, self.nombre_a, self.id_alumno)
 
